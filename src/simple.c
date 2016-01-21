@@ -4,7 +4,12 @@
 int
 main (int argc, char *argv[])
 {
-  int ArraySize = atoi(argv[1]);
+  int ArraySize = 0;
+  if ((ArraySize = atoi(argv[1])) == 0)
+  {
+    return(1);
+  }
+
   double * ArrayOne = (double *) malloc (sizeof(double) * ArraySize);
   double * ArrayTwo = (double *) malloc (sizeof(double) * ArraySize);
 
@@ -32,7 +37,7 @@ main (int argc, char *argv[])
     Result += ArrayOne[Index] * ArrayTwo[Index];
   }
 
-  printf ("Resultado: %4.4lf\n", Result);
+  printf ("Resultado: %lf\n", Result);
 
   return(0);
 }
